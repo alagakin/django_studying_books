@@ -4,14 +4,9 @@
 {% block h1 %} Homepage {% endblock h1 %}
 
 {% block content %}
-    <img src="{% static 'images/book.jpg' %}" class="w-12" alt="">
     {% if user.is_authenticated %}
         Hi, {{ user.email }}
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
     {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
-
+        <p class="text-center">You are not logged in</p>
     {% endif %}
 {% endblock content %}
