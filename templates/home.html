@@ -1,9 +1,9 @@
 {% extends '_base.html' %}
 {% load static %}
 {% block title %} Home {% endblock title %}
+{% block h1 %} Homepage {% endblock h1 %}
 
 {% block content %}
-    <h1>Homepage</h1>
     <img src="{% static 'images/book.jpg' %}" class="w-12" alt="">
     {% if user.is_authenticated %}
         Hi, {{ user.email }}
