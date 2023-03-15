@@ -9,6 +9,9 @@
         <p>Author: {{ book.author }}</p>
         <p>Price: {{ book.price }}$</p>
     </div>
+    {% if book.cover %}
+        <img src="{{ book.cover.url }}" alt="{{ book.title }}">
+    {% endif %}
     <div class="mt-4">
         <div>
             <h2>Reviews ({{ book.reviews.all.count }}):</h2>
