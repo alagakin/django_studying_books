@@ -13,6 +13,10 @@ services:
     environment:
       - "DJANGO_SECRET_KEY=django-insecure-vj5su*9oc+tru$$!(2i==ox2=)*85)_ng-f3z=1kzj!+*(yq$$vb"
       - "DJANGO_DEBUG=True"
+      - "EMAIL_HOST=sandbox.smtp.mailtrap.io"
+      - "EMAIL_HOST_USER=533cef52084535"
+      - "EMAIL_HOST_PASSWORD=21dbbe26d67e55"
+      - "EMAIL_PORT=2525"
   db:
     image: postgres:13
     volumes:
