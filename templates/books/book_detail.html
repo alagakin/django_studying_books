@@ -3,9 +3,22 @@
 {% block title %} {{ book.title }} {% endblock title %}
 {% block h1 %} {{ book.title }} {% endblock h1 %}
 {% block content %}
-    <a href="{% url 'book_list' %}" class="text-blue-400 text-underline"><-Back to list</a>
+    <a href="{% url 'book_list' %}" class="text-blue-400 text-underline"
+       xmlns="http://www.w3.org/1999/html"><-Back to list</a>
     <div class="">
         <p>Author: {{ book.author }}</p>
         <p>Price: {{ book.price }}$</p>
+    </div>
+    <div class="mt-4">
+        <div>
+            <h2>Reviews ({{ book.reviews.all.count }}):</h2>
+            {% for review in book.reviews.all %}
+                <div>
+                    <span class="text-red-400">{{ review.author }}</span>
+                    <p>{{ review }}</p>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
     </div>
 {% endblock content %}
