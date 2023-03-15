@@ -3,9 +3,9 @@
 {% block title %} Books {% endblock title %}
 {% block h1 %} Books {% endblock h1 %}
 {% block content %}
-    <ul class="list-disc text-3xl text-teal-600">
+    <ul class="list-disc text-3xl text-blue-400">
         {% for book in book_list %}
-            <li><a href="">{{ book.title }} | {{ book.author }}</a></li>
+            <li><a href="{% url 'book_detail' book.pk %}">{{ book.title }} | {{ book.author }}</a></li>
         {% endfor %}
     </ul>
 
