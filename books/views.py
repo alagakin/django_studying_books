@@ -18,7 +18,7 @@ class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     permission_required = 'books.special_status'
 
 
-class SearchResultListView(ListView):
+class SearchResultListView(LoginRequiredMixin, ListView):
     model = Book
     context_object_name = 'book_list'
     template_name = 'books/search_result.html'

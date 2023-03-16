@@ -14,6 +14,12 @@ class BookTest(TestCase):
             author='JK Rowling',
             price='25.00'
         )
+        self.book2 = Book.objects.create(
+            title='A day of Ivan Denisovich',
+            author='Alexander Solzhenitsyn',
+            price='50.00'
+        )
+
         self.special_permission = Permission.objects.get(codename='special_status')
 
         self.user = get_user_model().objects.create_user(
@@ -38,6 +44,7 @@ class BookTest(TestCase):
         response = self.client.get(reverse('book_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Harry Potter')
+        self.assertContains(response, 'A day of Ivan Denisovich')
         self.assertTemplateUsed(response, 'books/book_list.html')
 
     def test_book_list_view_for_logged_out_users(self):
@@ -59,4 +66,12 @@ class BookTest(TestCase):
         self.assertContains(response, 'An excellent review')
         self.assertTemplateUsed(response, 'books/book_detail.html')
 
+
+    def test_search_by_author(self):
+        self.client.login(email='reviewer@gmail.com', password='12345')
+        response = self.client.get(reverse('search_results'), {
+            'q': 'JK Rowling'
+        })
+        self.assertContains(response, 'Harry Potter')
+        self.assertNotContains(response, 'A day of Ivan Denisovich')
 
