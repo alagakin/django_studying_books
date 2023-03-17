@@ -1,0 +1,7 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %} Not Found {% endblock title %}
+{% block h1 %} 404 Not Found {% endblock h1 %}
+{% block content %}
+    <a href="{% url 'home' %}" class="text-center text-blue-400"><-Back to home</a>
+{% endblock content %}
