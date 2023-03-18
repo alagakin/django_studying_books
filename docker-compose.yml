@@ -13,6 +13,12 @@ services:
     environment:
       - "DJANGO_SECRET_KEY=django-insecure-vj5su*9oc+tru$$!(2i==ox2=)*85)_ng-f3z=1kzj!+*(yq$$vb"
       - "DJANGO_DEBUG=True"
+      - "DJANGO_SECURE_SSL_REDIRECT=False"
+      - "DJANGO_SECURE_HSTS_SECONDS=0"
+      - "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False"
+      - "DJANGO_SECURE_HSTS_PRELOAD=False"
+      - "DJANGO_SESSION_COOKIE_SECURE=False"
+      - "DJANGO_CSRF_COOKIE_SECURE=False"
       - "EMAIL_HOST=sandbox.smtp.mailtrap.io"
       - "EMAIL_HOST_USER=533cef52084535"
       - "EMAIL_HOST_PASSWORD=21dbbe26d67e55"
